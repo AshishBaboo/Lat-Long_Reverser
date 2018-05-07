@@ -1,8 +1,10 @@
+print('developed by Ashish Baboo' + '\n')
+
 import xlrd
 import geocoder
 import openpyxl
 from openpyxl import load_workbook
-location = "C:\\Users\\ashish.baboo\\Desktop\\Cleaning Tools\\Reversed Template.xlsx"
+location = "location of Reversed Template.xlsx"
 workbook = xlrd.open_workbook(location)
 sheet = workbook.sheet_by_index(0)
 
@@ -15,7 +17,7 @@ for i in range(1,Rows):
     Lat = data[i][9]
     Long = data[i][10]
     print(Lat,Long)
-    g = geocoder.google([Lat,Long],method='reverse',language='en' , key = "AIzaSyD4yJPQqmCBR9m18z9iMVME-2_T7Nt0Ln8")
+    g = geocoder.google([Lat,Long],method='reverse',language='en' , key = "your API here")
     print (g.housenumber,",",g.route,",",g.city,",",g.county,",",g.state,",",g.postal,",",g.country)
     wb = load_workbook('Reversed Template.xlsx')
     ws1 = wb.get_sheet_by_name("Locations")
